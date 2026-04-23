@@ -18,6 +18,11 @@ public:
     {
         START = NULL;
     }
+    
+    bool listEmpty()
+    {
+        return START == NULL;
+    }
 };
 
 
