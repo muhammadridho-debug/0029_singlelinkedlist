@@ -134,9 +134,53 @@ int main()
 
         switch (ch)
         {
-            // Case akan diisi di commit 10
-            case '5': break;
-            default: cout << "\nPilihan salah!\n";
+            case '1':
+            mhs.addNode();
+            break;
+        
+        case '2':
+            if (mhs.listEmpty())
+            {
+               cout << "\nList Kosong\n";
+               break;
+            }
+            cout << "\nMasukkan no mahasiswa yang akan dihapus : ";
+            cin >> nim;
+
+            if (mhs.delNode(nim)) 
+               cout << "\nData tidak ditemukan" << endl;
+            else
+                cout << "\nData dengan no mahasiswa " << nim << " berhasil dihapus" << endl;
+            break;
+        
+        case '3':
+            mhs.traverse();
+            break;
+        
+        case '4':
+        {
+            if (mhs.listEmpty())
+            {
+                cout << "\nList Kosong\n";
+                break;
+            }
+            Node *previous, *current;
+            cout << "\nMasukkan no mahasiswa yang akan dicari : ";
+            cin >> nim;
+
+            if (mhs.search(nim, previous, current))
+                cout << "\nData tidak ditemukan" << endl;
+            else
+            {
+                cout << "\nData ditemukan" << endl;
+                cout << "NIM Mahasiswa : " << current->noMhs << endl;
+            }
+            break;
+         }
+        case '5':  
+            break;
+        default: 
+            cout << "\nPilihan salah!\n";
         }
     } while (ch != '5');
 
